@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * { 
+            padding: 0;
+            margin:0;
+        }
+        body {
+            background-color: #333;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js" defer></script>
+
+</head>
+<body>
+    
+
+<header id="menu" class="menu__active">
+
+</header>
+
+
+
+<main>
+    <section class="hero">
+        <h1>smooth scroll up</h1>
+    </section>
+
+    <article >
+        <div class="wrapper">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis enim soluta quia, nulla libero aspernatur suscipit modi! Nihil obcaecati blanditiis animi, perspiciatis eos atque illum, explicabo sed sit odio, cupiditate odit unde veritatis quibusdam culpa veniam mollitia pariatur doloremque ipsa. Vero facere at officiis ullam iste veniam dolore labore quasi!</p>
+
+            <h4>CSS</h4>
+            <pre class="code">
+                
+#menu {
+    height: 100px;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    transition: all ease-out 500ms;
+}
+
+.menu__hide {
+    transform: translateY(-100%);
+    transition: all ease-out 250ms;
+}
+      
+            </pre>
+      
+            <h4>HTML</h4>
+            <pre class="code">
+                
+
+&lt;header id="menu" class="menu__active">&lt;/header>
+
+      
+            </pre>
+
+            <h4>JS</h4>
+            <pre class="code">
+                
+const menu = document.getElementById('menu')
+
+let counter = 0
+
+let prevScrollpos = scrollY;
+
+window.onscroll = function() {
+
+    if(scrollY == 0)
+    menu.classList.remove('menu__hide')
+
+    if (prevScrollpos > scrollY) {
+        counter++;
+        
+        if(counter > 20) 
+        menu.classList.remove('menu__hide')
+        
+    } else {
+        counter = 0
+        menu.classList.add('menu__hide')
+    }
+    prevScrollpos = scrollY;  
+    
+
+}
+
+      
+            </pre>
+
+        </div>
+    </article>
+
+
+</main>
+
+
+<footer></footer>
+</body>
+</html>
